@@ -1,21 +1,32 @@
 let run;
 let rain;
 let ltng;
+let birds;
 var loss = true;
 
-// function preload() {}
+let trees_l;
+let trees_r;
+var sky;
+function preload() {
+  trees_l = loadImage('assets/trees_l.jpg');
+  trees_r = loadImage('assets/trees_r.jpg');
+  sky = loadImage('assets/sky.jpg');
+}
 
 function setup() {
 
   createCanvas(567, 400, WEBGL);
   run = createAudio('assets/step.wav');
   rain = createAudio('assets/rain.ogg');
-  ltng = createAudio('assets/lightning.mp3');
+  // ltng = createAudio('assets/lightning.mp3');
+  birds = createAudio('assets/birds.wav');
+  birds.loop();
+  rain.volume(0.4);
   run.pause();
   run.volume(0.5);
   run.speed(1.2);
-  rain.loop();
-  rain.volume(0.4);
+  // rain.loop();
+  // rain.volume(0.4);
 }
 
 
@@ -37,14 +48,14 @@ function sounds() {
 
 
 function draw() {
-  background(0);
+  background(0,0);
   if (loss === false) {
     keyPressed();
   }
   align();
   light();
   hallway();
-  sounds();
+  // sounds();
   noStroke();
   scale(1 / 4);
   guyShape();

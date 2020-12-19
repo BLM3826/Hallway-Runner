@@ -3,8 +3,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #222;
+  background-image: url('assets/sky.jpg');
   background-size: 565px 400px;
-  background-repeat: no-repea0t;
+  background-repeat: no-repeat;
   font-family: Arial, sans-serif;
   height: 100vh;
 }

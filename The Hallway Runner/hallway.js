@@ -8,21 +8,21 @@ function light() {
   if (zp > 250 || zp < -250) {
     tp = tp * -1;
     // zp = -250
-    ltng.play();
+    // ltng.play();
   }
 
   // pointLight(250, 250, 250, 0, 0, 250);
-  // pointLight(250, 255, 20, 0, 0, 250);
+  pointLight(250, 255, 20, 0, 0, 250);
   pointLight(250, 255, 20, 0, 0, 250);
 
-  for (var i = 0; i <= 500; i = i + 125) {
+  // for (var i = 0; i <= 500; i = i + 125) {
 
-    if (500 % abs(zp) == 0 || 500 % (250 - abs(zp)) == 0) {
-      pointLight(250, 250, 250, 0, 0, zp + i);
-      pointLight(250, 250, 250, 0, 0, zp + i);
-      pointLight(250, 250, 250, 0, 0, zp + i);
-    }
-  }
+  //   if (500 % abs(zp) == 0 || 500 % (250 - abs(zp)) == 0) {
+  //     pointLight(250, 250, 250, 0, 0, zp + i);
+  //     pointLight(250, 250, 250, 0, 0, zp + i);
+  //     pointLight(250, 250, 250, 0, 0, zp + i);
+  //   }
+  // }
   zp = zp + tp;
 }
 
@@ -31,9 +31,11 @@ function hallway() {
   fill(50, 30, 60, 255);
   stroke(0);
   translate(-50, 0, 60);
+  texture(trees_l);
   box(20, 100, z);
 
-  fill(5, 30, 200, 255);
+  // fill(5, 30, 200, 255);
+  fill(60,30,0,255)
   noStroke();
   translate(65, 60);
   box(150, 20, z);
@@ -41,13 +43,13 @@ function hallway() {
   stroke(0);
   strokeWeight(1);
   for (var i = 0; i < 500; i = i + 83) {
-    line(-60, -10, zL + i, 60, -10, zL + i);
-    line(-55, -110, zL + i, -55, -10, zL + i);
-    line(55, -110, zL + i, 55, -10, zL + i);
-    line(-55, -80, -250, -55, -80, 250);
-    line(-55, -40, -250, -55, -40, 250);
-    line(55, -80, -250, 55, -80, 250);
-    line(55, -40, -250, 55, -40, 250);
+    // line(-60, -10, zL + i, 60, -10, zL + i);
+    // line(-55, -110, zL + i, -55, -10, zL + i);
+    // line(55, -110, zL + i, 55, -10, zL + i);
+    // line(-55, -80, -250, -55, -80, 250);
+    // line(-55, -40, -250, -55, -40, 250);
+    // line(55, -80, -250, 55, -80, 250);
+    // line(55, -40, -250, 55, -40, 250);
 
 
   }
@@ -65,6 +67,7 @@ function hallway() {
   fill(50, 30, 60, 255);
   stroke(0);
   translate(65, -60);
+  texture(trees_r);
   box(20, 100, z);
   obst();
 }
