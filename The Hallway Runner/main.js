@@ -2,7 +2,13 @@ let run;
 let rain;
 let ltng;
 let birds;
+let crickets;
+let owl;
 var loss = true;
+
+var prev = 0;
+var now = 0;
+var level = 0;
 
 let trees_l;
 let trees_r;
@@ -18,15 +24,30 @@ function setup() {
   createCanvas(567, 400, WEBGL);
   run = createAudio('assets/step.wav');
   rain = createAudio('assets/rain.ogg');
-  // ltng = createAudio('assets/lightning.mp3');
+  ltng = createAudio('assets/lightning.mp3');
   birds = createAudio('assets/birds.wav');
-  birds.loop();
-  rain.volume(0.4);
+  crickets = createAudio('assets/crickets.wav');
+  owl = createAudio('assets/owl.wav');
   run.pause();
   run.volume(0.5);
   run.speed(1.2);
-  // rain.loop();
-  // rain.volume(0.4);
+  if(level == 0){
+    birds.loop();
+    crickets.pause();
+    owl.pause();
+    ltng.pause();
+  }else if(level == 1){
+    crickets.loop();
+    owl.loop();
+    birds.pause();
+    ltng.pause();
+  }else if(level == 2){
+    rain.loop();
+    rain.volume(0.4);
+    birds.pause();
+    crickets.pause()
+    owl.pause();
+  }
 }
 
 
@@ -53,8 +74,19 @@ function draw() {
     keyPressed();
   }
   align();
-  light();
-  hallway();
+  // light();
+  if(level == 0){
+    light1();
+    env1();
+  }else if(level == 1){
+    light2();
+    env2();
+  }else if(level == 2){
+    light();
+    hallway();
+    sounds();
+  }
+  // hallway();
   // sounds();
   noStroke();
   scale(1 / 4);
