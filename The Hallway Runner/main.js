@@ -6,7 +6,7 @@ let crickets;
 let owl;
 var loss = true;
 
-var level = 0; //Change this to 0, 1 or 2
+var level = 0; //Change this to 0, 1 or 2 
 
 let trees_l;
 let trees_r;
