@@ -6,7 +6,7 @@ let crickets;
 let owl;
 var loss = true;
 
-var level = 0; //Change this to 0, 1 or 2 
+var level = 2; //Change this to 0, 1 or 2 
 
 let trees_l;
 let trees_r;
@@ -20,12 +20,12 @@ function preload() {
 function setup() {
 
   createCanvas(567, 400, WEBGL);
-  run = createAudio('assets/step.wav');
+  run = createAudio('assets/step.mp3');
   rain = createAudio('assets/rain.ogg');
   ltng = createAudio('assets/lightning.mp3');
-  birds = createAudio('assets/birds.wav');
-  crickets = createAudio('assets/crickets.wav');
-  owl = createAudio('assets/owl.wav');
+  birds = createAudio('assets/birds.mp3');
+  crickets = createAudio('assets/crickets.mp3');
+  owl = createAudio('assets/owl.mp3');
   run.pause();
   run.volume(0.5);
   run.speed(1.2);
