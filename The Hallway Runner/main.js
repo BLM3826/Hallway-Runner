@@ -4,17 +4,24 @@ let ltng;
 let birds;
 let crickets;
 let owl;
+let dungeon;
 var loss = true;
 
-var level = 2; //Change this to 0, 1 or 2 
+var level = 3; //Change this to 0, 1, 2 or 3
 
 let trees_l;
 let trees_r;
-var sky;
+let sky;
+let panel_l, panel_r; 
+let wall, wall_r;
 function preload() {
   trees_l = loadImage('assets/trees_l.jpg');
   trees_r = loadImage('assets/trees_r.jpg');
   sky = loadImage('assets/sky.jpg');
+  panel_l = loadImage('assets/panel_l.jpg');
+  panel_r = loadImage('assets/panel_r.jpg');
+  wall = loadImage('assets/wall.png');
+  wall_r = loadImage('assets/wall_r.png');
 }
 
 function setup() {
@@ -26,6 +33,7 @@ function setup() {
   birds = createAudio('assets/birds.mp3');
   crickets = createAudio('assets/crickets.mp3');
   owl = createAudio('assets/owl.mp3');
+  dungeon = createAudio('assets/dungeon.wav');
   run.pause();
   run.volume(0.5);
   run.speed(1.2);
@@ -34,17 +42,27 @@ function setup() {
     crickets.pause();
     owl.pause();
     ltng.pause();
+    dungeon.pause();
   }else if(level == 1){
     crickets.loop();
     owl.loop();
     birds.pause();
     ltng.pause();
+    dungeon.pause();
   }else if(level == 2){
     rain.loop();
     rain.volume(0.4);
     birds.pause();
     crickets.pause()
     owl.pause();
+    dungeon.pause();
+  }else if(level == 3){
+    dungeon.loop();
+    dungeon.volume(0.4);
+    birds.pause();
+    crickets.pause();
+    owl.pause();
+    ltng.pause();
   }
 }
 
@@ -83,6 +101,9 @@ function draw() {
     light();
     hallway();
     sounds();
+  }else if(level == 3){
+    light3();
+    env3();
   }
   // hallway();
   // sounds();
