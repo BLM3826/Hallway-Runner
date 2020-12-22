@@ -1,151 +1,146 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #222;
-  background-size: 565px 400px;
-  background-repeat: no-repeat;
-  font-family: Arial, sans-serif;
-  height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #222;
+    background-size: 565px 400px;
+    background-repeat: no-repea0t;
+    font-family: Arial, sans-serif;
+    height: 100vh;
 }
 
 canvas {
-  display: block;
-}
-
-
-.box {
-  padding: 15px;
-  
-
-}
-
-.button1 {
-  font-size: 1em;
-  padding: 10px;
-  color: #fff;
-  border: 2px solid darkred;
-  border-radius: 20px/50px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
-}
-
-.button1:hover {
-  background: darkred;
+    display: block;
 }
 
 .overlay {
-  position: fixed;
-  top: 0px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
 }
 
 #popup1 {
-  display: none;
+    display: none;
 }
 
-
 .popup {
-  margin: 100px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
 }
 
 .popup h2 {
-  margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
 }
 
 .popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
 }
 
 .popup .close:hover {
-  color: red;
+    color: red;
 }
 
 .popup .content {
-  max-height: 30%;
-  overflow: auto;
-}
-.overlay2 {
-  position: fixed;
-  top: 45px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-  transition: opacity 500ms;
+    max-height: 30%;
+    overflow: auto;
 }
 
+.overlay2 {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 500ms;
+}
 
 .popup2 {
-  margin: 120px 30%;
-  padding: 50px;
-  background: #fff;
-  border-radius: 5px;
-  width: 10%;
-  position: relative;
-  transition: all 5s ease-in-out;
+    margin: 120px 30%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 10%;
+    position: relative;
+    transition: all 5s ease-in-out;
 }
 
-
 #message {
-  padding-bottom: 40px;
-  color:red;
-  font-weight:bold;
-  
-  display: none;
+    padding-bottom: 20px;
+    color: red;
+    font-weight: bold;
+    display: none;
+    text-align: center;
 }
 
 .bframe {
-  padding-left: 10%;
+    /* border: rgb(179, 86, 86) solid; */
+    text-align: center;
+    padding: 20px 0px;
 }
 
-.button2 {
-  font-size: 1em;
-  padding: 10px;
-  color: #000;
-  border: 2px solid green;
-  border-radius: 20px/50px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease-out;
+.buttons {
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
 }
 
-.button2:hover {
-  background: green;
-  color: #fff;
+#start {
+    border: 2px solid green;
 }
 
+#start:hover {
+    background: green;
+    color: #fff;
+}
+
+#btn {
+    border: 2px solid darkred;
+}
+
+#btn:hover {
+    background: darkred;
+    color: #fff;
+}
+
+#prefs {
+    border: 2px solid goldenrod;
+}
+
+#prefs:hover {
+    background: goldenrod;
+    color: #fff;
+}
 
 @media screen and (max-width: 800px) {
-  .box {
-    width: 70%;
-  }
-
-  .popup {
-    width: 70%;
-  }
-  
-  .popup2 {
-    width: 11%;
-  }
+    .box {
+        width: 70%;
+    }
+    .popup {
+        width: 70%;
+    }
+    .popup2 {
+        width: 11%;
+    }
 }

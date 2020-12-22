@@ -1,57 +1,56 @@
-<!DOCTYPE html><html lang="en"><head>
-  <script src="p5.js"></script>
-  <script src="p5.sound.min.js"></script>
-  <script src="path/to/p5.sound.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="p5.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="path/to/p5.sound.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
 
 </head>
 
 <body>
-  <div class="box">
-    <a id="btn" class="button1">Controls</a>
-  </div>
 
-  <div id="popup2" class="overlay2">
-    <div class="popup2">
-      <div id="message">You Lost!</div>
-      <div class="bframe">
-        <a id="start" class="button2">Start</a>
-      </div>
+    <div id="popup2" class="overlay2">
+        <div class="popup2">
+            <div id="message">You Lost!</div>
+            <div class="bframe">
+                <a id="start" class="buttons">Start</a><br><br><br>
+                <a id="prefs" class="buttons">Preferences</a><br><br><br>
+                <a id="btn" class="buttons">Controls</a>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div id="popup1" class="overlay">
-    <div class="popup">
-      <h2>Controls: </h2>
-      <a class="close">×</a>
-      <div class="content">
-        <ul>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Controls: </h2>
+            <a class="close">×</a>
+            <div class="content">
+                <ul>
 
-          <li><b>UP</b>: UP_ARROW</li>
-          <li><b>LEFT</b>: LEFT_ARROW</li>
-          <li><b>RIGHT</b>: RIGHT_ARROW</li>
-          <li><b>DRAG HALLWAY</b>: CTRL + MOUSE</li>
-          <li><b>UNDO DRAG</b>: DELETE</li>
-          <li><b>PAUSE</b>: ESC</li>
-          <li><b>UNPAUSE</b>: SPACE</li>
+                    <li><b>UP</b>: UP_ARROW</li>
+                    <li><b>LEFT</b>: LEFT_ARROW</li>
+                    <li><b>RIGHT</b>: RIGHT_ARROW</li>
+                    <li><b>PAUSE</b>: ESC</li>
+                    <li><b>UNPAUSE</b>: SPACE</li>
 
-        </ul>
-      </div>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 
 
-  <script src="main.js"></script>
-  <script src="controls.js"></script>
-  <script src="hallway.js"></script>
-  <script src="env1.js"></script>
-  <script src="env2.js"></script>
-  <script src="env3.js"></script>
-  <script src="script.js"></script>
-  <script src="guy.js"></script>
+    <script src="main.js"></script>
+    <script src="controls.js"></script>
+    <script src="hallway.js"></script>
+    <script src="script.js"></script>
+    <script src="guy.js"></script>
 
 
 
 
-</body></html>
+</body>
+
+</html>
