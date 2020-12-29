@@ -1,46 +1,59 @@
 var popup = document.getElementById("popup1");
-var btn = document.getElementById("btn");
-var span = document.getElementsByClassName("close")[0];
+var ctrlbtn = document.getElementById("ctrl");
+var optbtn = document.getElementById("opts");
+var span1 = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[1];
 var start = document.getElementById("start");
 var popup2 = document.getElementById("popup2");
+var popup3 = document.getElementById("popup3");
 var message = document.getElementById("message");
 var rr;
 
 
-btn.onclick = function() {
-  popup.style.display = "block";
+ctrlbtn.onclick = function() {
+    popup.style.display = "block";
 }
 
-span.onclick = function() {
-  popup.style.display = "none";
+optbtn.onclick = function() {
+    popup3.style.display = "block";
 }
 
-window.onclick = function(event) {
-  if (event.target == popup) {
+span1.onclick = function() {
     popup.style.display = "none";
-  }
+}
+span2.onclick = function() {
+    popup3.style.display = "none";
+}
+window.onclick = function(event) {
+    if (event.target == popup) {
+        popup.style.display = "none";
+    }
+    if (event.target == popup3) {
+        popup3.style.display = "none";
+    }
 }
 
 start.onclick = function() {
-  run.loop();
-  rr=true;
-  loss = false;
-  z = 500;
-  zL = -z / 2;
-  zp = -z / 2;
-  tp = 1
-  zo = -250;
-  pos = 0;
-  side = 0;
-  turn = 1;
-  yr= -40/360;
-  xr = 0 / 360;
-  popup2.style.display = "none";
+    run.loop();
+    rr = true;
+    loss = false;
+    pos = random(4);
+    z = 500;
+    zL = -z / 2;
+    zp = -z / 2;
+    tp = 1
+    zo = -250;
+    side = 0;
+    turn = 1;
+    yr = -40 / 360;
+    xr = 0 / 360;
+    speed = 4;
+    popup2.style.display = "none";
 }
 
 function lose() {
-  loss = true;
-  popup2.style.display = "block";
-  message.style.display = "block";
-  run.pause();
+    loss = true;
+    popup2.style.display = "block";
+    message.style.display = "block";
+    run.pause();
 }
