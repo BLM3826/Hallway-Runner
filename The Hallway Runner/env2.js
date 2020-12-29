@@ -44,5 +44,4 @@ function env2() {
   translate(65, -60);
   texture(trees_r);
   box(20, 100, z);
-  obst();
 }

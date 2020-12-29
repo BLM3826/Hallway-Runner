@@ -3,17 +3,18 @@ let rain, ltng;
 let birds;
 let crickets, owl;
 let dungeon;
+let collect;
 var loss = true;
-let sec = 0;
 
-var level = 0; //Change this to 0, 1, 2 or 3
+var level = 3; //Change this to 0, 1, 2 or 3
 
 let trees_l,trees_r;
 let panel_l, panel_r;
 let wall, wall_r;
 let fire, thorn, wood;
+let arial;
 
-let pirate;
+let pirate, coin, monster, parrot;
 
 function preload() {
     trees_l = loadImage('assets/trees_l.jpg');
@@ -22,11 +23,15 @@ function preload() {
     panel_r = loadImage('assets/panel_r.jpg');
     wall = loadImage('assets/wall.png');
     wall_r = loadImage('assets/wall_r.png');
-    fire = loadImage('assets/fire.jpg');
-    thorn = loadImage('assets/thorn.jpg');
-    wood = loadImage('assets/wood.jpg');
+    arial = loadFont('assets/arial.ttf');
+    collect = createAudio('assets/gold.wav');
 
     pirate = loadModel('assets/pirate_body.obj', true);
+    coin = loadModel('assets/coin.obj', true);
+    monster = loadModel('assets/monster.obj', true);
+    parrot = loadModel('assets/parrot.obj', true);
+    skeleton = loadModel('assets/skeleton.obj', true);
+    skeletonPirate = loadModel('assets/skeletonPirate.obj', true);
 }
 
 function setup() {
@@ -48,12 +53,14 @@ function setup() {
         owl.pause();
         ltng.pause();
         dungeon.pause();
+        fill(0);
     } else if (level == 1) {
         crickets.loop();
         owl.loop();
         birds.pause();
         ltng.pause();
         dungeon.pause();
+        fill(0);
     } else if (level == 2) {
         rain.loop();
         rain.volume(0.4);
@@ -61,6 +68,7 @@ function setup() {
         crickets.pause()
         owl.pause();
         dungeon.pause();
+        fill(0);
     }else if (level == 3){
         dungeon.loop();
         dungeon.volume(0.4);
@@ -68,7 +76,13 @@ function setup() {
         crickets.pause();
         owl.pause();
         ltng.pause();
+        fill(255);
     }
+    textFont(arial);
+    textSize(5);
+    textStyle(BOLD);
+    textAlign(CENTER, CENTER);
+
 }
 
 
@@ -93,6 +107,19 @@ function draw() {
     background(0, 0);
     keyPressed();
     align();
+    /*text('S: ' + score + ' Highscore: ' + hscore+ ' C: ' + coins + ' Total C: ' + totalcoins, 10, -170);*/
+    text('Score: ' + score + ' Coins: ' + coins, 10, -170);  
+    textSize(20);
+    if (totalno > 0){
+      if(totalno % 30 == 0){
+        text('You are unstoppable!', 10, -150);
+      } else if (totalno % 20 == 0){
+        text('Keep Going!', 10, -150);
+      }else if (totalno % 10 == 0){
+        text('Good Job!', 10, -150);
+      }
+    }
+    
     // light();
     if (level == 0) {
         light1();
@@ -108,11 +135,11 @@ function draw() {
         light3();
         env3();
     }
-    // hallway();
-    // sounds();
+    obst();
+    addcoins();
     noStroke();
     // scale(1 / 4);
-    sec = millis() / 1000;
+    //sec = millis() / 1000;
     modelGuy(pirate);
     // guyShape();
 }

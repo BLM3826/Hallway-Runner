@@ -56,5 +56,4 @@ function env3() {
   translate(65, -60);
   texture(wall_r);
   box(20, 100, z);
-  obst();
 }

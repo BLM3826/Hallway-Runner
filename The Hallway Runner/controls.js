@@ -5,7 +5,7 @@ var d = true;
 var f = true;
 var fx, fy, ly, lx = 0;
 var mdo = false;
-var k = 8;
+var k = 4;
 var p = false;
 
 function mousePressed() {
@@ -60,7 +60,7 @@ function keyPressed() {
             if (turn <= 2) {
                 turn += 24 / 360;
             }
-            if (side <= 250) {
+            if (side <= 65) {
                 side += 10;
             } else {
                 keyCode = 0;
@@ -102,10 +102,10 @@ function keyPressed() {
         } else if (keyCode === UP_ARROW || keyCode === 87) {
             if (keyIsPressed === true) {
                 jflag = false;
-                if (jump >= -200) {
+                if (jump >= -70) {
                     jump -= k;
-
-                    if (jump <= -192 || jump >= 8) {
+                    //jump = -10;
+                    if (jump <= -60 || jump >= 8) {
                         k *= -1;
                     }
                 }
@@ -113,7 +113,7 @@ function keyPressed() {
                 jflag = true;
                 if (jump <= 0) {
                     jump += 10;
-                    k = 8;
+                    k = 4;
                 }
             }
 

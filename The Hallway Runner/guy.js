@@ -89,7 +89,7 @@ function guyShape() {
 }
 
 function modelGuy(body) {
-    translate(-90 + side, 20 + jump, 150)
+    translate(-90 + side, 20 + jump, 180)
     rotate(PI)
     scale(1 / 5)
     fill(255)

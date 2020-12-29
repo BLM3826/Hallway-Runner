@@ -144,3 +144,11 @@ canvas {
         width: 11%;
     }
 }
+
+.score {
+    padding-bottom: 20px;
+    color: red;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+}

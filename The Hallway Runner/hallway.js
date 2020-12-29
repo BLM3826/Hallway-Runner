@@ -66,5 +66,4 @@ function hallway() {
     stroke(0);
     translate(65, -60);
     box(20, 100, z);
-    obst();
 }
