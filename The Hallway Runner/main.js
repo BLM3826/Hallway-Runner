@@ -6,20 +6,28 @@ let dungeon;
 var loss = true;
 let sec = 0;
 
-var level = 0; //Change this to 0, 1, 2 or 3
+var level = 2; //Change this to 0, 1, 2 or 3
 
 let trees_l,trees_r;
 let panel_l, panel_r;
+let brick_l, brick_r, floor;
 let wall, wall_r;
 let fire, thorn, wood;
 
 let pirate;
+
+const perc = 567/400;
+let perc_x, perc_y;
+let width, height;
 
 function preload() {
     trees_l = loadImage('assets/trees_l.jpg');
     trees_r = loadImage('assets/trees_r.jpg');
     panel_l = loadImage('assets/panel_l.jpg');
     panel_r = loadImage('assets/panel_r.jpg');
+    brick_l = loadImage('assets/brick_l.jpeg');
+    brick_r = loadImage('assets/brick_r.jpeg');
+    floor = loadImage('assets/floor.jpg');
     wall = loadImage('assets/wall.png');
     wall_r = loadImage('assets/wall_r.png');
     fire = loadImage('assets/fire.jpg');
@@ -30,8 +38,8 @@ function preload() {
 }
 
 function setup() {
-
-    createCanvas(567, 400, WEBGL);
+    resize();
+    createCanvas(width, height, WEBGL);
     run = createAudio('assets/step.wav');
     rain = createAudio('assets/rain.ogg');
     ltng = createAudio('assets/lightning.mp3');
@@ -90,6 +98,7 @@ function sounds() {
 
 
 function draw() {
+    scale(perc_x+1, perc_y+1);
     background(0, 0);
     keyPressed();
     align();
@@ -115,4 +124,16 @@ function draw() {
     sec = millis() / 1000;
     modelGuy(pirate);
     // guyShape();
+}
+
+function windowResized(){
+    resize();
+    resizeCanvas(width, height, WEBGL);
+}
+
+function resize(){
+    perc_x = (window.innerWidth)/567;
+    perc_y = (window.innerHeight)/400;
+    width = perc*window.innerHeight;
+    height = window.innerHeight;
 }

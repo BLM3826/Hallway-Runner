@@ -13,7 +13,7 @@ function light() {
 
     // pointLight(250, 250, 250, 0, 0, 250);
     // pointLight(250, 255, 20, 0, 0, 250);
-    pointLight(250, 255, 20, 0, 0, 250);
+    pointLight(250, 255, 250, 0, 0, 200);
 
     for (var i = 0; i <= 500; i = i + 125) {
 
@@ -31,23 +31,25 @@ function hallway() {
     fill(50, 30, 60, 255);
     stroke(0);
     translate(-50, 0, 60);
+    texture(brick_l);
     box(20, 100, z);
 
     fill(5, 30, 200, 255);
     noStroke();
     translate(65, 60);
+    texture(floor);
     box(150, 20, z);
     //lines
     stroke(0);
     strokeWeight(1);
     for (var i = 0; i < 500; i = i + 83) {
-        line(-60, -10, zL + i, 60, -10, zL + i);
-        line(-55, -110, zL + i, -55, -10, zL + i);
-        line(55, -110, zL + i, 55, -10, zL + i);
-        line(-55, -80, -250, -55, -80, 250);
-        line(-55, -40, -250, -55, -40, 250);
-        line(55, -80, -250, 55, -80, 250);
-        line(55, -40, -250, 55, -40, 250);
+        // line(-60, -10, zL + i, 60, -10, zL + i);
+        // line(-55, -110, zL + i, -55, -10, zL + i);
+        // line(55, -110, zL + i, 55, -10, zL + i);
+        // line(-55, -80, -250, -55, -80, 250);
+        // line(-55, -40, -250, -55, -40, 250);
+        // line(55, -80, -250, 55, -80, 250);
+        // line(55, -40, -250, 55, -40, 250);
 
 
     }
@@ -65,6 +67,7 @@ function hallway() {
     fill(50, 30, 60, 255);
     stroke(0);
     translate(65, -60);
+    texture(brick_r);
     box(20, 100, z);
     obst();
 }
