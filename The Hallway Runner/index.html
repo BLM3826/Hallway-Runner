@@ -4,7 +4,6 @@
 <head>
     <script src="p5.js"></script>
     <script src="p5.sound.min.js"></script>
-    <script src="path/to/p5.sound.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8">
 
@@ -47,30 +46,38 @@
                 <div class="envpick">
                     <span class="categ">Environment:</span>
                     <label class="container">
-                        <input type="radio" checked="checked" name="radio">
-                        <span class="checkmark"></span>
+                        <input type="radio" checked="checked" name="radio" id="env1">
+                        <span class="checkmark">
+                            <img src="assets/sky.jpg" alt="Env1" width="50px" height="50px">
+                        </span>
                         <span class="title">One</span>
                     </label>
                     <label class="container">
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
+                        <input type="radio" name="radio" id="env2">
+                        <span class="checkmark">
+                            <img src="assets/night_sky.jpg" alt="Env1" width="50px" height="50px">
+                        </span>
                         <span class="title">Two</span>
                     </label>
                     <label class="container">
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
+                        <input type="radio" name="radio" id="env3">
+                        <span class="checkmark">
+                            <img src="assets/wood.jpg" alt="Env1" width="50px" height="50px">
+                        </span>
                         <span class="title">Three</span>
                     </label>
                     <label class="container">
-                        <input type="radio" name="radio">
-                        <span class="checkmark"></span>
+                        <input type="radio" name="radio" id="env4">
+                        <span class="checkmark">
+                            <img src="assets/wall.png" alt="Env1" width="50px" height="50px">
+                        </span>
                         <span class="title">Four</span>
                     </label>
                 </div>
                 <div class="soundcheck">
                     <span class="categ">Sound:</span>
                     <label class="switch">
-                        <input type="checkbox">
+                        <input id="soundsw" type="checkbox" checked="checked">
                         <span class="slider round"></span>
                     </label>
                 </div>

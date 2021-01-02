@@ -185,11 +185,11 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    height: 50px;
+    height: 50.5px;
     width: 50px;
     background-color: #eee;
-    /* border-radius: 50%; */
-    background-image: url("assets/trees_l.jpg");
+    border: solid white 3px;
+    /* border-radius: 3px; */
 }
 
 
@@ -205,6 +205,7 @@ canvas {
 .container input:checked~.checkmark {
     /* background-color: #2196F3; */
     border: solid #2196F3 3px;
+    border-radius: 3px;
 }
 
 
@@ -321,9 +322,6 @@ input:checked+.slider:before {
 /* -----------Media----------- */
 
 @media screen and (max-width: 800px) {
-    .box {
-        width: 70%;
-    }
     .popup {
         width: 70%;
     }

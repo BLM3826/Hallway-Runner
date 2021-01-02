@@ -9,6 +9,12 @@ var popup3 = document.getElementById("popup3");
 var message = document.getElementById("message");
 var rr;
 
+var env1pick = document.getElementById("env1");
+var env2pick = document.getElementById("env2");
+var env3pick = document.getElementById("env3");
+var env4pick = document.getElementById("env4");
+var soundswitch = document.getElementById("soundsw");;
+
 
 ctrlbtn.onclick = function() {
     popup.style.display = "block";
@@ -56,4 +62,27 @@ function lose() {
     popup2.style.display = "block";
     message.style.display = "block";
     run.pause();
+}
+
+function envPick() {
+    if (env1pick.checked) {
+        level = 0;
+    } else if (env2pick.checked) {
+        level = 1;
+    } else if (env3pick.checked) {
+        level = 2;
+    } else if (env4pick.checked) {
+        level = 3;
+    } else {
+        console.log("no Env picked");
+    }
+}
+
+function soundCheck() {
+    if (soundswitch.checked) {
+        masterVolume(1);
+    } else {
+        masterVolume(0);
+    }
+
 }

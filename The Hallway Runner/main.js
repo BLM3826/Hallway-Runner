@@ -6,9 +6,9 @@ let dungeon;
 var loss = true;
 let sec = 0;
 
-var level = 0; //Change this to 0, 1, 2 or 3
+var level; //Change this to 0, 1, 2 or 3
 
-let trees_l,trees_r;
+let trees_l, trees_r;
 let panel_l, panel_r;
 let wall, wall_r;
 let fire, thorn, wood;
@@ -61,7 +61,7 @@ function setup() {
         crickets.pause()
         owl.pause();
         dungeon.pause();
-    }else if (level == 3){
+    } else if (level == 3) {
         dungeon.loop();
         dungeon.volume(0.4);
         birds.pause();
@@ -94,6 +94,7 @@ function draw() {
     keyPressed();
     align();
     // light();
+    envPick();
     if (level == 0) {
         light1();
         env1();
@@ -104,7 +105,7 @@ function draw() {
         light();
         hallway();
         sounds();
-    }else if(level == 3){
+    } else if (level == 3) {
         light3();
         env3();
     }
@@ -115,4 +116,6 @@ function draw() {
     sec = millis() / 1000;
     modelGuy(pirate);
     // guyShape();
+
+    soundCheck();
 }
