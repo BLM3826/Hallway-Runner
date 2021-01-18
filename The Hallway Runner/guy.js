@@ -9,6 +9,9 @@ var tenn = 0;
 var tenflip = 40;
 
 function stronguy() {
+    /*
+    checking if uniform's color can change whether we have 20 coins available
+    */
     charcolor = document.getElementById("colorpick").value;
     if (totalcoins >= 20) {
         document.getElementById("colorpick").disabled = false;
@@ -22,6 +25,11 @@ function stronguy() {
 
         }
     }
+    /* 
+    in the following section the .obj files are loaded
+    transformations using p5's functions take place in order to create the final player that will be in the game
+    values were used based on trial and error until the result was visually good 
+    */
     translate(-100 + side, 15 + jump, 200); //topothetisi
     scale(1 / 9);
     rotateY(PI - PI / 12);
@@ -101,7 +109,7 @@ function stronguy() {
     model(fist);
     pop();
     pop();
-
+    // rotation movements
     if (tenn === 360 || tenn === -360) {
         tenflip *= -1;
     } else if (tenn >= 400) {
@@ -113,15 +121,5 @@ function stronguy() {
     }
     if (jflag === true && loss === false) {
         tenn += tenflip * (1 + (speed - 3) / 10);
-        // console.log("tenn =", tenn);
     }
 }
-
-// function PirateGuy() {
-//     translate(-90 + side, 20 + jump, 180)
-//     rotate(PI)
-//     scale(1 / 5)
-//     fill(255)
-//     model(body)
-
-// }
