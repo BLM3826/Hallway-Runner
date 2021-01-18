@@ -1,42 +1,44 @@
+// .obj variables
 var p_body;
 var p_arm;
 var p_l_f;
 var p_r_f;
-var x=-50;
-var y=-50;
-var i=5;
-var j=10;
+var x=-50; //variable for sword rotation
+var y=-50; //variable for feet movement
+var i=10; // speed of rotation
+var j=10; //speed of movement
 
 function pirateEnemy() {
-  // translate(-90 + side, 20 + jump, 150);
-  rotateX(PI);
-  // scale(1 / 5);
-  fill(255,140,60);
+  rotateX(PI); // rotating because model is loaded backwards
+  fill(255,140,60); // coloring
   model(p_body);
+  // different trial and error values for proper shaping the pirate
   translate(60,25,-75);
   push();
+  translate(0,0,100);
   rotateX(x/360);
+  translate(0,0,-100);
   fill(55,40,160);
   model(p_arm);
   pop();
   scale(1/2);
   translate(-170,-250,100);
-  push();
-  translate(0,0, y)
+  push(); //push() regarding left feet
+  translate(0,0, y);
   model(p_l_f);
   pop();
   translate(140,0,0);
-  push();
-  translate(0, 0, -y)
+  push(); //push() regarding right feet
+  translate(0, 0, -y);
   model(p_r_f);
   pop();
   x += i;
   y += j;
-  if(x===-50|| x===50){
-    i*=-1;
+  if(x===-50|| x===500){
+    i*=-1; // reversing rotation
   }
   if(y===-50 || y===50){
-    j *= -1;
+    j *= -1; // reversing translation, making "walking" effect
   }
   
 }
