@@ -11,9 +11,16 @@ function setup() {
     setSounds();
 
     //Session Storage
-    hscore = window.sessionStorage.getItem("hscore");
-    // totalcoins = window.sessionStorage.getItem("coins");
-    // window.sessionStorage.setItem("coins", 0);
+    hscore = parseInt(window.sessionStorage.getItem("hscore"));
+    totalcoins = parseInt(window.sessionStorage.getItem("coins"));
+    if(isNaN(hscore)){
+        window.sessionStorage.setItem("hscore", 0);
+        hscore = 0;
+    }
+    if(isNaN(totalcoins)) {
+        window.sessionStorage.setItem("coins", 0);
+        totalcoins = 0;
+    }
 }
 
 function draw() {

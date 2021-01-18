@@ -24,6 +24,7 @@ var coins = 0;
 var totalcoins = 0;
 var score = 0;
 var hscore = 0;
+var first_lose;
 var speed;
 var pos;
 
@@ -53,7 +54,7 @@ span1.onclick = function() {
 span2.onclick = function() {
     popup3.style.display = "none";
     if (totalcoins < 20) {
-        document.getElementById("colorpick").disabled = true;
+        // document.getElementById("colorpick").disabled = true;
     }
 }
 
@@ -64,7 +65,7 @@ window.onclick = function(event) {
     if (event.target == popup3) {
         popup3.style.display = "none";
         if (totalcoins < 20) {
-            document.getElementById("colorpick").disabled = true;
+            // document.getElementById("colorpick").disabled = true;
         }
     }
 }
@@ -98,6 +99,10 @@ start.onclick = function() {
     coins = 0;
     addcoin = true;
     firstPick = true;
+    first_lose = true;
+    if (totalcoins < 20) {
+        document.getElementById("colorpick").disabled = true;
+    }
 }
 
 function lose() {
@@ -110,12 +115,15 @@ function lose() {
     if (score > hscore) {
         hscore = score;
     }
-    totalcoins += coins;
-    coins = 0;
-
-    //Session Storage
-    window.sessionStorage.setItem("hscore", hscore);
-    window.sessionStorage.setItem("coins", totalcoins);
+    console.log(first_lose);
+    if(first_lose){
+        first_lose = false;
+        totalcoins += coins;
+    
+        //Session Storage
+        window.sessionStorage.setItem("hscore", hscore);
+        window.sessionStorage.setItem("coins", totalcoins);
+    }
 }
 
 function soundCheck() {

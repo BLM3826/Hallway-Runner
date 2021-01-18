@@ -27,7 +27,7 @@ function stronguy() {
     rotateY(turn); //    peristrofh
     rotateX(PI);
     normalMaterial();
-    fill(255, 0, 0);
+    fill(charcolor);
     model(torso);
     push();
     translate(0, 120, 0);
