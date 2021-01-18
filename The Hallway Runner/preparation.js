@@ -84,42 +84,6 @@ function createSounds() {
     jail = createAudio('assets/dungeon.wav');
 }
 
-function setSounds() {
-    run.pause();
-    run.volume(0.5);
-    run.speed(1.2);
-    if (level == 0) {
-        birds.loop();
-        crickets.pause();
-        owl.pause();
-        ltng.pause();
-        jail.pause();
-        fill(0);
-    } else if (level == 1) {
-        crickets.loop();
-        owl.loop();
-        birds.pause();
-        ltng.pause();
-        jail.pause();
-        fill(0);
-    } else if (level == 2) {
-        rain.loop();
-        rain.volume(0.4);
-        birds.pause();
-        crickets.pause()
-        owl.pause();
-        jail.pause();
-        fill(0);
-    } else if (level == 3) {
-        jail.loop();
-        jail.volume(0.4);
-        birds.pause();
-        crickets.pause();
-        owl.pause();
-        ltng.pause();
-        fill(255);
-    }
-}
 
 function envPick() {
     if (env1pick.checked) {
@@ -134,7 +98,11 @@ function envPick() {
         console.log("no Env picked");
     }
     if (level == 0) {
-        birds.loop();
+        if(!mute){
+            birds.loop();
+        }else{
+            birds.pause();
+        }
         crickets.pause();
         owl.pause();
         ltng.pause();
@@ -143,8 +111,13 @@ function envPick() {
         light1();
         daylight();
     } else if (level == 1) {
-        crickets.loop();
-        owl.loop();
+        if(!mute){
+            crickets.loop();
+            owl.loop();
+        }else{
+            crickets.pause();
+            owl.pause();
+        }
         birds.pause();
         ltng.pause();
         jail.pause();
@@ -152,8 +125,13 @@ function envPick() {
         light2();
         midnight();
     } else if (level == 2) {
-        rain.loop();
-        rain.volume(0.4);
+        if(!mute){
+            rain.loop();
+            rain.volume(0.4);
+            sounds();
+        }else{
+            rain.pause();
+        }
         birds.pause();
         crickets.pause()
         owl.pause();
@@ -161,10 +139,13 @@ function envPick() {
         fill(0);
         light3();
         alley();
-        sounds();
     } else if (level == 3) {
-        jail.loop();
-        jail.volume(0.4);
+        if(!mute){
+            jail.loop();
+            jail.volume(0.4);
+        }else{
+            jail.pause();
+        }
         birds.pause();
         crickets.pause();
         owl.pause();

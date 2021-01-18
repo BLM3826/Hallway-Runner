@@ -8,7 +8,6 @@ function preload() {
 function setup() {
     createCanvas(567, 400, WEBGL);
     createSounds();
-    setSounds();
 
     //Session Storage
     hscore = parseInt(window.sessionStorage.getItem("hscore"));

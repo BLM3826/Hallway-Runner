@@ -12,7 +12,7 @@ function addcoins() {
         translate(-25, -20, zc);
         if (zc >= 180 && zc <= 250 && side > 60 && jump <= -30) {
             if (addcoin) {
-                collect.play();
+                if(!mute) collect.play();
                 coins += 1;
                 //totalcoins += 1;
                 addcoin = false;
@@ -22,7 +22,7 @@ function addcoins() {
         translate(-25, 30, zc);
         if (zc >= 180 && zc <= 250 && side > 60 && jump >= -10) {
             if (addcoin) {
-                collect.play();
+                if(!mute) collect.play();
                 coins += 1;
                 //totalcoins += 1;
                 addcoin = false;
@@ -32,7 +32,7 @@ function addcoins() {
         translate(-90, 30, zc);
         if (zc >= 180 && zc <= 250 && side < 40 && jump >= -10) {
             if (addcoin) {
-                collect.play();
+                if(!mute) collect.play();
                 coins += 1;
                 //totalcoins += 1;
                 addcoin = false;
@@ -42,7 +42,7 @@ function addcoins() {
         translate(-90, -20, zc);
         if (zc >= 180 && zc <= 250 && side < 40 && jump <= -30) {
             if (addcoin) {
-                collect.play();
+                if(!mute) collect.play();
                 coins += 1;
                 //totalcoins += 1;
                 addcoin = false;

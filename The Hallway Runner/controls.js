@@ -120,7 +120,7 @@ function keyPressed() {
     }
     if (keyCode === 32) {
         loss = false;
-        run.play()
+        if(!mute) run.play()
     }
     if (jump > 0) {
         jump = 0;

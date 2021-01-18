@@ -9,7 +9,7 @@ function light3() {
     if (zp > 250 || zp < -250) {
         tp = tp * -1;
         // zp = -250
-        ltng.play();
+        if(!mute) ltng.play();
     }
 
     pointLight(250, 255, 250, 0, 0, 200);

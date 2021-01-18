@@ -25,6 +25,7 @@ var totalcoins = 0;
 var score = 0;
 var hscore = 0;
 var first_lose;
+var mute = false;
 var speed;
 var pos;
 
@@ -64,7 +65,7 @@ window.onclick = function(event) {
 }
 
 start.onclick = function() {
-    run.loop();
+    if(!mute) run.loop();
     rr = true;
     loss = false;
     z = 500;
@@ -120,8 +121,10 @@ function lose() {
 function soundCheck() {
     if (soundswitch.checked) {
         masterVolume(1);
+        mute = false;
     } else {
         masterVolume(0);
+        mute = true;
     }
 
 }
