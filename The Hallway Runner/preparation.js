@@ -25,6 +25,7 @@ let birds;
 let crickets, owl;
 let jail;
 let collect;
+let damage;
 var loss = true;
 
 function needs() {
@@ -82,6 +83,7 @@ function createSounds() {
     crickets = createAudio('assets/crickets.mp3');
     owl = createAudio('assets/owl.mp3');
     jail = createAudio('assets/dungeon.wav');
+    damage = createAudio('assets/damage.wav');
 }
 
 

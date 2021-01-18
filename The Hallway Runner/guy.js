@@ -16,6 +16,7 @@ function stronguy() {
             if (firstPick === true) {
                 totalcoins -= 20;
                 firstPick = false;
+                if(!mute) collect.play();
             }
             document.getElementById("colorpick").defaultValue = charcolor;
 

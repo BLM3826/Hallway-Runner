@@ -109,6 +109,7 @@ function lose() {
     }
     console.log(first_lose);
     if(first_lose){
+        if(!mute) damage.play();
         first_lose = false;
         totalcoins += coins;
     

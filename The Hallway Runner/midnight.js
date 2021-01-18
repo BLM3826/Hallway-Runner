@@ -9,8 +9,8 @@ function light2() {
     if (zp > 250 || zp < -250) {
         tp = tp * -1;
     }
-    pointLight(150, 150, 20, 0, 0, 250);
-    //pointLight(250, 255, 120, 0, 0, 250);
+    pointLight(150, 150, 150, 0, 0, 100);
+    pointLight(150, 150, 150, 0, 0, 100);
 
     zp = zp + tp;
 }
