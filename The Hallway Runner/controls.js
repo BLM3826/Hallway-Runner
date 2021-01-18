@@ -1,5 +1,6 @@
 var xr = 0 / 360;
 var yr = -40 / 360;
+var yrtest = -40 / 360;
 var zr = 0 / 360;
 var d = true;
 var f = true;
@@ -18,6 +19,7 @@ function mouseReleased() {
 
 
 function align() {
+
     rotateY(yr);
     rotateX(xr);
 }
@@ -53,28 +55,23 @@ function keyPressed() {
     if (loss === false) {
         if (keyCode === RIGHT_ARROW || keyCode === 68) {
             if (yr <= 11 / 360) {
-                yr = yr + 2 / 360;
-                rotateY(yr);
-
+                yr = yr + 4 / 360;
             }
-            if (turn <= 2) {
+            if (turn <= 0.8) {
                 turn += 24 / 360;
             }
             if (side <= 65) {
                 side += 10;
-            } else {
-                keyCode = 0;
             }
 
         } else if (keyCode === LEFT_ARROW || keyCode === 65) {
             if (yr >= -39 / 360) {
-                yr = yr - 2 / 360;
-                rotateY(yr);
+                yr = yr - 4 / 360;
             }
-            if (turn >= 1) {
+            if (turn >= 0) {
                 turn -= 24 / 360;
             }
-            if (side >= 0) {
+            if (side > 0) {
                 side -= 10;
             }
         } else if (keyCode === DELETE) {
@@ -104,15 +101,14 @@ function keyPressed() {
                 jflag = false;
                 if (jump >= -70) {
                     jump -= k;
-                    //jump = -10;
-                    if (jump <= -60 || jump >= 8) {
+                    if (jump <= -60 || jump >= 0) {
                         k *= -1;
                     }
                 }
             } else {
                 jflag = true;
                 if (jump <= 0) {
-                    jump += 10;
+                    jump += 8;
                     k = 4;
                 }
             }
@@ -126,5 +122,7 @@ function keyPressed() {
         loss = false;
         run.play()
     }
-
+    if (jump > 0) {
+        jump = 0;
+    }
 }

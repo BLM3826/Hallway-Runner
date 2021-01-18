@@ -1,88 +1,25 @@
-let run;
-let rain, ltng;
-let birds;
-let crickets, owl;
-let dungeon;
-let collect;
-var loss = true;
+var level;
+var totalno = 0;
 
-var level = 3; //Change this to 0, 1, 2 or 3
-
-let trees_l,trees_r;
-let panel_l, panel_r;
-let wall, wall_r;
-let fire, thorn, wood;
-let arial;
-
-let pirate, coin, monster, parrot;
+// //Responsive screen
+// const perc = 567 / 400;
+// let perc_x, perc_y;
+// let width, height;
 
 function preload() {
-    trees_l = loadImage('assets/trees_l.jpg');
-    trees_r = loadImage('assets/trees_r.jpg');
-    panel_l = loadImage('assets/panel_l.jpg');
-    panel_r = loadImage('assets/panel_r.jpg');
-    wall = loadImage('assets/wall.png');
-    wall_r = loadImage('assets/wall_r.png');
-    arial = loadFont('assets/arial.ttf');
-    collect = createAudio('assets/gold.wav');
-
-    pirate = loadModel('assets/pirate_body.obj', true);
-    coin = loadModel('assets/coin.obj', true);
-    monster = loadModel('assets/monster.obj', true);
-    parrot = loadModel('assets/parrot.obj', true);
-    skeleton = loadModel('assets/skeleton.obj', true);
-    skeletonPirate = loadModel('assets/skeletonPirate.obj', true);
+    needs();
 }
 
 function setup() {
-
+    // resize();
     createCanvas(567, 400, WEBGL);
-    run = createAudio('assets/step.wav');
-    rain = createAudio('assets/rain.ogg');
-    ltng = createAudio('assets/lightning.mp3');
-    birds = createAudio('assets/birds.mp3');
-    crickets = createAudio('assets/crickets.mp3');
-    owl = createAudio('assets/owl.mp3');
-    dungeon = createAudio('assets/dungeon.wav');
-    run.pause();
-    run.volume(0.5);
-    run.speed(1.2);
-    if (level == 0) {
-        birds.loop();
-        crickets.pause();
-        owl.pause();
-        ltng.pause();
-        dungeon.pause();
-        fill(0);
-    } else if (level == 1) {
-        crickets.loop();
-        owl.loop();
-        birds.pause();
-        ltng.pause();
-        dungeon.pause();
-        fill(0);
-    } else if (level == 2) {
-        rain.loop();
-        rain.volume(0.4);
-        birds.pause();
-        crickets.pause()
-        owl.pause();
-        dungeon.pause();
-        fill(0);
-    }else if (level == 3){
-        dungeon.loop();
-        dungeon.volume(0.4);
-        birds.pause();
-        crickets.pause();
-        owl.pause();
-        ltng.pause();
-        fill(255);
-    }
-    textFont(arial);
-    textSize(5);
-    textStyle(BOLD);
-    textAlign(CENTER, CENTER);
+    createSounds();
+    setSounds();
 
+    //Session Storage
+    hscore = window.sessionStorage.getItem("hscore");
+    // totalcoins = window.sessionStorage.getItem("coins");
+    // window.sessionStorage.setItem("coins", 0);
 }
 
 
@@ -103,43 +40,53 @@ function sounds() {
 }
 
 
+function windowResized() {
+    // resize();
+    // resizeCanvas(width, height, WEBGL);
+}
+
+function resize() {
+    perc_x = (window.innerWidth) / 567;
+    perc_y = (window.innerHeight) / 400;
+    width = perc * window.innerHeight;
+    height = window.innerHeight;
+}
+
 function draw() {
+    // scale(perc_x + 1, perc_y + 1);
     background(0, 0);
     keyPressed();
     align();
-    /*text('S: ' + score + ' Highscore: ' + hscore+ ' C: ' + coins + ' Total C: ' + totalcoins, 10, -170);*/
-    text('Score: ' + score + ' Coins: ' + coins, 10, -170);  
-    textSize(20);
-    if (totalno > 0){
-      if(totalno % 30 == 0){
-        text('You are unstoppable!', 10, -150);
-      } else if (totalno % 20 == 0){
-        text('Keep Going!', 10, -150);
-      }else if (totalno % 10 == 0){
-        text('Good Job!', 10, -150);
-      }
+    totalno = score + coins;
+    if (totalno > 0) {
+        if (totalno % 30 == 0) {
+            // text('You are unstoppable!', 10, -150);
+            score_msg.innerHTML = "You are unstoppable!";
+        } else if (totalno % 20 == 0) {
+            // text('Keep Going!', 10, -150);
+            score_msg.innerHTML = "Keep Going!";
+        } else if (totalno % 10 == 0) {
+            // text('Good Job!', 10, -150);
+            score_msg.innerHTML = "Good Job!";
+        }
+    } else {
+        score_msg.innerHTML = "Have Fun!";
     }
-    
+    span_score.innerHTML = score;
+    span_coins.innerHTML = coins;
+    span_highscore.innerHTML = hscore;
+    span_total_coins.innerHTML = totalcoins;
+
+    if (score > hscore) {
+        span_highscore.classList.add("newrecord");
+    }
+
     // light();
-    if (level == 0) {
-        light1();
-        env1();
-    } else if (level == 1) {
-        light2();
-        env2();
-    } else if (level == 2) {
-        light();
-        hallway();
-        sounds();
-    }else if(level == 3){
-        light3();
-        env3();
-    }
-    obst();
+    envPick();
+    soundCheck();
+    addEnemies();
     addcoins();
     noStroke();
-    // scale(1 / 4);
-    //sec = millis() / 1000;
-    modelGuy(pirate);
-    // guyShape();
+    stronguy();
+
 }

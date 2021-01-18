@@ -5,33 +5,22 @@ var zp = -z / 2;
 var tp = 1
 var zo = -250;
 
-function light3() {
+function light2() {
     if (zp > 250 || zp < -250) {
         tp = tp * -1;
-        // zp = -250
-        ltng.play();
     }
+    pointLight(150, 150, 20, 0, 0, 250);
 
-    pointLight(250, 255, 250, 0, 0, 200);
-
-    for (var i = 0; i <= 500; i = i + 125) {
-
-        if (500 % abs(zp) == 0 || 500 % (250 - abs(zp)) == 0) {
-            pointLight(250, 250, 250, 0, 0, zp + i);
-            pointLight(250, 250, 250, 0, 0, zp + i);
-            pointLight(250, 250, 250, 0, 0, zp + i);
-        }
-    }
     zp = zp + tp;
 }
 
-function hallway() {
-    document.getElementById("defaultCanvas0").style.background = "#222 url('assets/black.jfif') repeat";
+function midnight() {
+    document.getElementById("defaultCanvas0").style.background = "#222 url('assets/night_sky.jpg') no-repeat";
     strokeWeight(1);
     fill(50, 30, 60, 255);
     stroke(0);
     translate(-50, 0, 60);
-    texture(brick_l);
+    texture(panel_l);
     push();
     translate(0, 0, translate_z);
     box(20, 100, z);
@@ -41,10 +30,10 @@ function hallway() {
     box(20, 100, z);
     pop();
 
-    fill(5, 30, 200, 255);
+    fill(60, 30, 0, 255)
     noStroke();
     translate(65, 60);
-    texture(floor);
+    texture(soil);
     push();
     translate(0, 0, translate_z);
     box(150, 20, z);
@@ -53,12 +42,23 @@ function hallway() {
     translate(0, 0, -z);
     box(150, 20, z);
     pop();
-
+    //lines
+    stroke(0);
+    strokeWeight(1);
+    for (var i = 0; i < 500; i = i + 83) {
+        line(-60, -10, zL + i, 60, -10, zL + i);
+    }
+    if (loss === false) {
+        zL += 3
+    }
+    if (zL > -166) {
+        zL = -250;
+    }
 
     fill(50, 30, 60, 255);
     stroke(0);
     translate(65, -60);
-    texture(brick_r);
+    texture(panel_r);
     push();
     translate(0, 0, translate_z);
     box(20, 100, z);
@@ -70,11 +70,12 @@ function hallway() {
 
     if (loss === false) {
         translate_z += 3 * (1 + (speed - 3) / 10);
-        // console.log("translate_z");
-        // console.log(translate_z);
+        console.log("translate_z");
+        console.log(translate_z);
 
         if (translate_z > 500) {
             translate_z = 0;
         }
     }
+
 }

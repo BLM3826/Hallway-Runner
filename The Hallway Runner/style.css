@@ -3,14 +3,42 @@ body {
     margin: 0;
     padding: 0;
     background-color: #222;
-    background-size: 565px 400px;
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
     height: 100vh;
 }
 
 canvas {
+    /* background: #222; */
     display: block;
+    margin: auto;
+}
+
+#info {
+    height: 80px;
+    width: 300px;
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 40%;
+    right: 0;
+    text-align: center;
+    border: solid 2px red;
+    color: #fff;
+    background-color: rgb(153, 153, 153);
+}
+
+p {
+    line-height: 5px;
+}
+
+#total_info {
+    color: #222;
+}
+
+.newrecord {
+    color: red;
 }
 
 .overlay {
@@ -23,12 +51,13 @@ canvas {
     transition: opacity 500ms;
 }
 
-#popup1 {
+#popup1,
+#popup3 {
     display: none;
 }
 
 .popup {
-    margin: 100px auto;
+    margin: 150px auto;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
@@ -74,7 +103,7 @@ canvas {
 }
 
 .popup2 {
-    margin: 120px 30%;
+    margin: 120px 50%;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
@@ -115,40 +144,235 @@ canvas {
     color: #fff;
 }
 
-#btn {
+#ctrl {
     border: 2px solid darkred;
 }
 
-#btn:hover {
+#ctrl:hover {
     background: darkred;
     color: #fff;
 }
 
-#prefs {
+#opts {
     border: 2px solid goldenrod;
 }
 
-#prefs:hover {
+#opts:hover {
     background: goldenrod;
     color: #fff;
 }
 
+#popup3 {
+    width: 101%;
+}
+
+.categ {
+    font-weight: bolder;
+}
+
+
+/* #popup3 .content {
+    max-height: 100%;
+} */
+
+
+/* ---------Environment-------- */
+
+.envpick {
+    display: inline-flex;
+    height: 100px;
+}
+
+.container {
+    margin-left: 50px;
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 52px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default radio button */
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50.5px;
+    width: 50px;
+    background-color: #eee;
+    border: solid white 3px;
+    /* border-radius: 3px; */
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the radio button is checked, add a blue background */
+
+.container input:checked~.checkmark {
+    /* background-color: #2196F3; */
+    border: solid #2196F3 3px;
+    border-radius: 3px;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the indicator (dot/circle) */
+
+
+/* .container .checkmark:after {
+    top: 0px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+} */
+
+.title {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+}
+
+
+/* ------Sound------- */
+
+
+/* The switch - the box around the slider */
+
+.switch {
+    margin-left: 300px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+
+/* Hide default HTML checkbox */
+
+.switch #soundsw {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+/* The slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/* -----uniform------ */
+
+.charcolor i {
+    color: gold;
+}
+
+.price {
+    margin-left: 250px;
+}
+
+.colorpicker {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+
+/* -----------Media----------- */
+
 @media screen and (max-width: 800px) {
-    .box {
-        width: 70%;
-    }
     .popup {
         width: 70%;
     }
     .popup2 {
-        width: 11%;
+        width: 20%;
     }
-}
-
-.score {
-    padding-bottom: 20px;
-    color: red;
-    font-weight: bold;
-    display: none;
-    text-align: center;
 }
