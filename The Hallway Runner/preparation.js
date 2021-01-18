@@ -3,14 +3,15 @@ let trees_l, trees_r, soil;
 let panel_l, panel_r;
 let brick_l, brick_r, floor;
 let wall, wall_r;
-let fire, thorn, wood;
 
-//Obstacles and enemies
-let coin, monster, parrot;
-var pirate;
+let coin;
 
-//Enemies env1
-let squirrel;
+//enemies
+let doveObj, treeStumpObj;
+let batObj, spiderObj;
+let streetLightObj, zombieObj;
+let parrotObj, skeletonObj, skeletonPirateObj;
+var p_body, p_arm, p_l_f, p_r_f;
 
 //Player assets
 var torso, head, hair;
@@ -49,32 +50,45 @@ function needs() {
     brick_l = loadImage('assets/brick_r.jpeg');
 
     collect = createAudio('assets/gold.wav');
-  
+
     coin = loadModel('assets/coin.obj', true);
-  
-    //env1 enemies 
-    // squirrel = loadModel('assets/Squirrel.obj', true);
-    monster = loadModel('assets/monster.obj', true);
-    parrot = loadModel('assets/parrot.obj', true);
-    skeleton = loadModel('assets/skeleton.obj', true);
-    skeletonPirate = loadModel('assets/skeletonPirate.obj', true);
+
+    //daylight enemies
+    doveObj = loadModel('assets/Dove.obj', true);
+    treeStumpObj = loadModel('assets/Tree Stump.obj', true);
+
+    //midnight enemies
+    batObj = loadModel('assets/Bat.obj', true);
+    spiderObj = loadModel('assets/Spider.obj', true);
+
+    //alley enemies
+    streetLightObj = loadModel('assets/Street Light.obj', true);
+    zombieObj = loadModel('assets/Male_Zombie.obj', true);
+
+    //dungeon enemies
+    parrotObj = loadModel('assets/parrot.obj', true);
+    skeletonPirateObj = loadModel('assets/skeletonPirate.obj', true);
+    p_body = loadModel('assets/pirate_body.obj', true);
+    p_arm = loadModel('assets/pirate_arm.obj', true);
+    p_l_f = loadModel('assets/pirate_left_foot.obj', true);
+    p_r_f = loadModel('assets/pirate_right_foot.obj', true);
 }
 
-function createSounds(){
-  run = createAudio('assets/step.wav');
-  rain = createAudio('assets/rain.ogg');
-  ltng = createAudio('assets/lightning.mp3');
-  birds = createAudio('assets/birds.mp3');
-  crickets = createAudio('assets/crickets.mp3');
-  owl = createAudio('assets/owl.mp3');
-  jail = createAudio('assets/dungeon.wav');
+function createSounds() {
+    run = createAudio('assets/step.wav');
+    rain = createAudio('assets/rain.ogg');
+    ltng = createAudio('assets/lightning.mp3');
+    birds = createAudio('assets/birds.mp3');
+    crickets = createAudio('assets/crickets.mp3');
+    owl = createAudio('assets/owl.mp3');
+    jail = createAudio('assets/dungeon.wav');
 }
 
-function setSounds(){
-  run.pause();
-  run.volume(0.5);
-  run.speed(1.2);
-  if (level == 0) {
+function setSounds() {
+    run.pause();
+    run.volume(0.5);
+    run.speed(1.2);
+    if (level == 0) {
         birds.loop();
         crickets.pause();
         owl.pause();
@@ -146,7 +160,7 @@ function envPick() {
         jail.pause();
         fill(0);
         light3();
-        hallway();
+        alley();
         sounds();
     } else if (level == 3) {
         jail.loop();
@@ -161,16 +175,18 @@ function envPick() {
     }
 }
 
-function addEnemies(){
-  obst();
-  /*if (level == 0) {
-        enemies1();
-    } else if (level == 1) {
-        enemies2();
-    } else if (level == 2) {
-        enemiesh();
-    } else if (level == 3) {
-        enemies3();
+function sounds() {
+    if (ltng.time() > 16) {
+        ltng.volume(0);
+        if (ltng.time() < 20) {
+            ltng.time(20);
+        }
+    } else if (ltng.time() > 12) {
+        ltng.volume(0.1);
+    } else {
+        ltng.volume(0.4);
     }
-    */
+    if (rain.time() >= 15) {
+        rain.time(1);
+    }
 }

@@ -50,20 +50,6 @@ function daylight() {
     translate(0, 0, -z);
     box(150, 20, z);
     pop();
-    //lines
-    stroke(0);
-    strokeWeight(1);
-
-    for (var i = 0; i < 500; i = i + 83) {
-        // line(-60, -10, zL + i, 60, -10, zL + i);
-    }
-
-    if (loss === false) {
-        zL += 3
-    }
-    if (zL > -166) {
-        zL = -250;
-    }
 
     fill(50, 30, 60, 255);
     stroke(0);
@@ -78,14 +64,6 @@ function daylight() {
     box(20, 100, z);
     pop();
 
-    if (loss === false) {
-        translate_z += 3 * (1 + (speed - 3) / 10);
-        // console.log("translate_z");
-        // console.log(translate_z);
-
-        if (translate_z > 500) {
-            translate_z = 0;
-        }
-    }
+    moveWalls();
 
 }

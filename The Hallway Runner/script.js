@@ -25,6 +25,18 @@ var totalcoins = 0;
 var score = 0;
 var hscore = 0;
 var speed;
+var pos;
+
+function loadingScreen() {
+    if (document.getElementById("p5_loading") === null) {
+        document.getElementById("loading_screen").style.opacity = 0;
+        setTimeout(function() {
+            document.getElementById("loading_screen").style.display = "none";
+            console.log("none now");
+        }, 5000);
+    }
+}
+
 
 
 ctrlbtn.onclick = function() {
@@ -72,15 +84,12 @@ start.onclick = function() {
     turn = 0;
     yr = -40 / 360;
     xr = 0 / 360;
-    speed = 7;
-    speedc = 5;
-    pos = random(4);
+    speed = 3;
+    speedc = 3.5;
+    pos = random(6);
     cpos = random(4);
     popup2.style.display = "none";
     info.style.display = "block";
-    // if (score > hscore) {
-    //     hscore = score;
-    // }
     span_highscore.classList.remove("newrecord");
     score = 0;
     no = 0;
@@ -88,10 +97,12 @@ start.onclick = function() {
     // totalcoins += coins;
     coins = 0;
     addcoin = true;
+    firstPick = true;
 }
 
 function lose() {
     loss = true;
+    score_msg.innerHTML = "";
     popup2.style.display = "block";
     message.style.display = "block";
     run.pause();

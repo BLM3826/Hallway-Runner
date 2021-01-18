@@ -4,7 +4,7 @@ var jflag = true;
 var jump = 0;
 var turn = 0;
 var side = 0;
-
+var firstPick;
 var tenn = 0;
 var tenflip = 40;
 
@@ -13,8 +13,12 @@ function stronguy() {
     if (totalcoins >= 20) {
         document.getElementById("colorpick").disabled = false;
         if ((document.getElementById("colorpick").defaultValue) != charcolor) {
-            totalcoins -= 20;
+            if (firstPick === true) {
+                totalcoins -= 20;
+                firstPick = false;
+            }
             document.getElementById("colorpick").defaultValue = charcolor;
+
         }
     }
     translate(-100 + side, 15 + jump, 200); //topothetisi
@@ -23,7 +27,7 @@ function stronguy() {
     rotateY(turn); //    peristrofh
     rotateX(PI);
     normalMaterial();
-    fill(charcolor);
+    fill(255, 0, 0);
     model(torso);
     push();
     translate(0, 120, 0);

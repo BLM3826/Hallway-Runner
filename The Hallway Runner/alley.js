@@ -25,7 +25,7 @@ function light3() {
     zp = zp + tp;
 }
 
-function hallway() {
+function alley() {
     document.getElementById("defaultCanvas0").style.background = "#222 url('assets/black.jfif') repeat";
     strokeWeight(1);
     fill(50, 30, 60, 255);
@@ -68,13 +68,5 @@ function hallway() {
     box(20, 100, z);
     pop();
 
-    if (loss === false) {
-        translate_z += 3 * (1 + (speed - 3) / 10);
-        // console.log("translate_z");
-        // console.log(translate_z);
-
-        if (translate_z > 500) {
-            translate_z = 0;
-        }
-    }
+    moveWalls();
 }

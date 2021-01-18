@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div class="loading_screen" id="loading_screen">
+        <img src="assets/black.jfif" alt="Loading" height="100%" width="100%">
+    </div>
     <div id="info">
         <p id="total_info">Highscore: <span id="highscore">0</span> Total Coins: <span id="total_coins">0</span></p>
         <p id="info_text">Score: <span id="score">0</span> Coins: <span id="coins">0</span></p>
@@ -52,7 +55,7 @@
                 <div class="envpick">
                     <span class="categ">Environment:</span>
                     <label class="container">
-                        <input type="radio" checked="checked" name="radio" id="env1">
+                        <input type="radio" name="radio" id="env1">
                         <span class="checkmark">
                             <img src="assets/sky.jpg" alt="Env1" width="50px" height="50px">
                         </span>
@@ -73,7 +76,7 @@
                         <span class="title">Hallway</span>
                     </label>
                     <label class="container">
-                        <input type="radio" name="radio" id="env4">
+                        <input type="radio" checked="checked" name="radio" id="env4">
                         <span class="checkmark">
                             <img src="assets/wall.png" alt="Env1" width="50px" height="50px">
                         </span>
@@ -103,15 +106,16 @@
     <script src="controls.js"></script>
     <script src="daylight.js"></script>
     <script src="midnight.js"></script>
-    <script src="hallway.js"></script>
+    <script src="alley.js"></script>
     <script src="dungeon.js"></script>
     <script src="script.js"></script>
     <script src="guy.js"></script>
-    <script src="obstacles.js"></script>
+    <script src="pirateEnemy.js"></script>
+    <script src="enemies.js"></script>
     <script src="coins.js"></script>
     <script src="preparation.js"></script>
-
-
+    <script src="createEnemies.js"></script>
+    <script src="update.js"></script>
 
 </body>
 

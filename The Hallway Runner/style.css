@@ -3,15 +3,25 @@ body {
     margin: 0;
     padding: 0;
     background-color: #222;
-    background-repeat: no-repeat;
+    background-size: 565px 400px;
+    background-repeat: repeat;
     font-family: Arial, sans-serif;
     height: 100vh;
 }
 
 canvas {
-    /* background: #222; */
     display: block;
     margin: auto;
+}
+
+.loading_screen {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    transition: all 5s ease-in-out;
+    z-index: 100;
 }
 
 #info {
@@ -252,23 +262,10 @@ p {
     display: block;
 }
 
-
-/* Style the indicator (dot/circle) */
-
-
-/* .container .checkmark:after {
-    top: 0px;
-    left: 0px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
-} */
-
 .title {
     position: absolute;
     top: 60px;
-    left: 0px;
+    left: 10px;
 }
 
 
@@ -288,7 +285,7 @@ p {
 
 /* Hide default HTML checkbox */
 
-.switch #soundsw {
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
