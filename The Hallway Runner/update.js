@@ -20,7 +20,6 @@ function score_coins() {
     span_highscore.innerHTML = hscore;
     span_total_coins.innerHTML = totalcoins;
 
-
 }
 
 // Update position of the walls

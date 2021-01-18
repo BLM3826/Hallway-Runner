@@ -21,6 +21,12 @@ function setup() {
         window.sessionStorage.setItem("coins", 0);
         totalcoins = 0;
     }
+
+    setInterval(function() {
+        if(score_msg.innerHTML == "New Highscore!"){
+            score_msg.style.color = (score_msg.style.color == 'red' ? 'black' : 'red');
+        }
+    }, 1000); 
 }
 
 function draw() {

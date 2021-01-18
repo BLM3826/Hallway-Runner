@@ -27,7 +27,7 @@ canvas {
 #info {
     height: 80px;
     width: 300px;
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     bottom: 0;

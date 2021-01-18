@@ -33,7 +33,6 @@ function loadingScreen() {
         document.getElementById("loading_screen").style.opacity = 0;
         setTimeout(function() {
             document.getElementById("loading_screen").style.display = "none";
-            console.log("none now");
         }, 5000);
     }
 }
@@ -53,9 +52,6 @@ span1.onclick = function() {
 }
 span2.onclick = function() {
     popup3.style.display = "none";
-    if (totalcoins < 20) {
-        // document.getElementById("colorpick").disabled = true;
-    }
 }
 
 window.onclick = function(event) {
@@ -64,9 +60,6 @@ window.onclick = function(event) {
     }
     if (event.target == popup3) {
         popup3.style.display = "none";
-        if (totalcoins < 20) {
-            // document.getElementById("colorpick").disabled = true;
-        }
     }
 }
 
@@ -90,12 +83,10 @@ start.onclick = function() {
     pos = random(6);
     cpos = random(4);
     popup2.style.display = "none";
-    info.style.display = "block";
     span_highscore.classList.remove("newrecord");
     score = 0;
     no = 0;
     totalno = 0;
-    // totalcoins += coins;
     coins = 0;
     addcoin = true;
     firstPick = true;
