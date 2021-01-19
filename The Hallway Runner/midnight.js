@@ -5,18 +5,17 @@ var zp = -z / 2;
 var tp = 1
 var zo = -250;
 
+//Lighting for Midnight
 function light2() {
-    if (zp > 250 || zp < -250) {
-        tp = tp * -1;
-    }
     pointLight(150, 150, 150, 0, 0, 100);
     pointLight(150, 150, 150, 0, 0, 100);
-
-    zp = zp + tp;
-}
+} 
 
 function midnight() {
+    //set background
     document.getElementById("defaultCanvas0").style.background = "#222 url('assets/night_sky.jpg') no-repeat";
+
+    //Left wall
     strokeWeight(1);
     fill(50, 30, 60, 255);
     stroke(0);
@@ -31,6 +30,7 @@ function midnight() {
     box(20, 100, z);
     pop();
 
+    //Floor
     fill(60, 30, 0, 255)
     noStroke();
     translate(65, 60);
@@ -44,6 +44,7 @@ function midnight() {
     box(150, 20, z);
     pop();
 
+    //Right wall
     fill(50, 30, 60, 255);
     stroke(0);
     translate(65, -60);

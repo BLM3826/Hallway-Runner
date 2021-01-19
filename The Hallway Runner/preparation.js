@@ -6,7 +6,7 @@ let wall, wall_r;
 
 let coin;
 
-//enemies
+//Enemies
 let doveObj, treeStumpObj;
 let batObj, spiderObj;
 let streetLightObj, zombieObj;
@@ -26,9 +26,11 @@ let crickets, owl;
 let jail;
 let collect;
 let damage;
+
 var loss = true;
 
 function needs() {
+    //Load player objects
     torso = loadModel('assets/Male_Diver_Torso.obj', true);
     head = loadModel('assets/Male_head1.obj', true);
     hand = loadModel('assets/Hand.obj', true);
@@ -39,34 +41,34 @@ function needs() {
     l_shoe = loadModel('assets/Running_ShoeL.obj', true);
     fist = loadModel('assets/c_hand.obj', true);
 
+    //Load Images
     trees_r = loadImage('assets/trees_r.jpg');
     soil = loadImage('assets/soil.jpg');
     panel_l = loadImage('assets/panel_l.jpg');
     panel_r = loadImage('assets/panel_r.jpg');
-    trees_l = loadImage('assets/trees_l.jpg'); // me trees_l exei error
+    trees_l = loadImage('assets/trees_l.jpg'); 
     wall_r = loadImage('assets/wall_r.png');
     brick_r = loadImage('assets/brick_r.jpeg');
     floor = loadImage('assets/floor.jpg');
-    wall = loadImage('assets/wall_r.png'); // me wall exei error
+    wall = loadImage('assets/wall_r.png');
     brick_l = loadImage('assets/brick_r.jpeg');
 
-    collect = createAudio('assets/gold.wav');
-
+    //Load coin
     coin = loadModel('assets/coin.obj', true);
 
-    //daylight enemies
+    //Daylight enemies
     doveObj = loadModel('assets/Dove.obj', true);
     treeStumpObj = loadModel('assets/Tree Stump.obj', true);
 
-    //midnight enemies
+    //Midnight enemies
     batObj = loadModel('assets/Bat.obj', true);
     spiderObj = loadModel('assets/Spider.obj', true);
 
-    //alley enemies
+    //Alley enemies
     streetLightObj = loadModel('assets/Street Light.obj', true);
     zombieObj = loadModel('assets/Male_Zombie.obj', true);
 
-    //dungeon enemies
+    //Dungeon enemies
     parrotObj = loadModel('assets/parrot.obj', true);
     skeletonPirateObj = loadModel('assets/skeletonPirate.obj', true);
     p_body = loadModel('assets/pirate_body.obj', true);
@@ -76,17 +78,23 @@ function needs() {
 }
 
 function createSounds() {
+    //Main sounds
     run = createAudio('assets/step.wav');
-    rain = createAudio('assets/rain.ogg');
-    ltng = createAudio('assets/lightning.mp3');
+    collect = createAudio('assets/gold.wav');
+    damage = createAudio('assets/damage.wav');
+    //Daylight sounds
     birds = createAudio('assets/birds.mp3');
+    //Midnight sounds
     crickets = createAudio('assets/crickets.mp3');
     owl = createAudio('assets/owl.mp3');
+    //Alley sounds
+    rain = createAudio('assets/rain.ogg');
+    ltng = createAudio('assets/lightning.mp3');
+    //Dungeon sounds
     jail = createAudio('assets/dungeon.wav');
-    damage = createAudio('assets/damage.wav');
 }
 
-
+//Resolve picked environment
 function envPick() {
     if (env1pick.checked) {
         level = 0;
@@ -99,7 +107,7 @@ function envPick() {
     } else {
         console.log("no Env picked");
     }
-    if (level == 0) {
+    if (level == 0) { //Daylight
         if(!mute){
             birds.loop();
         }else{
@@ -112,7 +120,7 @@ function envPick() {
         fill(0);
         light1();
         daylight();
-    } else if (level == 1) {
+    } else if (level == 1) { //Midnight
         if(!mute){
             crickets.loop();
             owl.loop();
@@ -126,7 +134,7 @@ function envPick() {
         fill(0);
         light2();
         midnight();
-    } else if (level == 2) {
+    } else if (level == 2) { //Alley
         if(!mute){
             rain.loop();
             rain.volume(0.4);
@@ -141,7 +149,7 @@ function envPick() {
         fill(0);
         light3();
         alley();
-    } else if (level == 3) {
+    } else if (level == 3) { //Dungeon
         if(!mute){
             jail.loop();
             jail.volume(0.4);
@@ -159,6 +167,7 @@ function envPick() {
 }
 
 function sounds() {
+    //Timing for lightning
     if (ltng.time() > 16) {
         ltng.volume(0);
         if (ltng.time() < 20) {
