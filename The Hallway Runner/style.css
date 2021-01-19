@@ -15,6 +15,7 @@ canvas {
 }
 
 .loading_screen {
+    background-color: black;
     position: absolute;
     display: block;
     height: 100%;
@@ -22,6 +23,12 @@ canvas {
     opacity: 1;
     transition: all 5s ease-in-out;
     z-index: 100;
+}
+
+.loading_screen img {
+    display: block;
+    margin: auto;
+    margin-top: 10%;
 }
 
 #info {
@@ -265,7 +272,7 @@ p {
 .title {
     position: absolute;
     top: 60px;
-    left: 10px;
+    left: 0px;
 }
 
 

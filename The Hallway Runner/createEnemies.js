@@ -87,6 +87,7 @@ function streetLight(p) {
 function zombie() {
     fill(0, 51, 0);
     scale(1 / 3);
+    rotateX(-PI / 2);
     model(zombieObj);
 }
 
