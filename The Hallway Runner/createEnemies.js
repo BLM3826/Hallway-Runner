@@ -1,5 +1,6 @@
+// Choose enemies based on the enviroment and the position
 function chooseEnemy(p) {
-    if (level == 0) { //daylight
+    if (level == 0) { // daylight 
         if (p == 0 || p == 1) {
             dove();
         } else if (p == 2 || p == 3) {
@@ -13,7 +14,7 @@ function chooseEnemy(p) {
         } else {
             treeStump();
         }
-    } else if (level == 1) { //midnight
+    } else if (level == 1) { // midnight
         if (p == 0 || p == 1) {
             bat();
         } else if (p == 2 || p == 3) {
@@ -27,7 +28,7 @@ function chooseEnemy(p) {
         } else {
             spider();
         }
-    } else if (level == 2) { //alley
+    } else if (level == 2) { // alley
         if (p == 0 || p == 1) {
             streetLight(p);
         } else if (p == 2 || p == 3) {
@@ -37,7 +38,7 @@ function chooseEnemy(p) {
             translate(0, -20, 0);
             bush();
         }
-    } else { //dungeon
+    } else { // dungeon
         if (p == 0 || p == 1) {
             parrot();
         } else if (p == 2 || p == 3) {
@@ -47,6 +48,8 @@ function chooseEnemy(p) {
         }
     }
 }
+
+// Set wanted color, scale, rotation for each enemy
 
 function dove() {
     fill(255);
