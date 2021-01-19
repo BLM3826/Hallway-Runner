@@ -11,9 +11,11 @@ function setup() {
     createSounds(); // loading sound assets
 
     //Session Storage
-    //used for storing coins and high score until the browser is closed!
+    //used for storing coins, high score and uniform color until the browser is closed!
     hscore = parseInt(window.sessionStorage.getItem("hscore"));
     totalcoins = parseInt(window.sessionStorage.getItem("coins"));
+    let uniform = document.getElementById("colorpick");
+    uniform.value = window.sessionStorage.getItem("uniform");
     if(isNaN(hscore)){
         window.sessionStorage.setItem("hscore", 0);
         hscore = 0;
@@ -21,6 +23,10 @@ function setup() {
     if(isNaN(totalcoins)) {
         window.sessionStorage.setItem("coins", 0);
         totalcoins = 0;
+    }
+    if(window.sessionStorage.getItem("uniform") == null){
+        window.sessionStorage.setItem("uniform", '#ff0000');
+        uniform.value = '#ff0000';
     }
     //printed in HTML
     setInterval(function() {

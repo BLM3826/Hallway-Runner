@@ -20,9 +20,11 @@ function stronguy() {
                 totalcoins -= 20;
                 firstPick = false;
                 if(!mute) collect.play();
+                window.sessionStorage.setItem("coins", totalcoins);
             }
+            //Save uniform color
             document.getElementById("colorpick").defaultValue = charcolor;
-
+            window.sessionStorage.setItem("uniform", charcolor);
         }
     }
     /* 
