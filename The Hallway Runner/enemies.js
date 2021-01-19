@@ -1,10 +1,11 @@
-var depth = 250;
-var no = 0; // Number of obstacles
-var shape = 2; // Shape of obstacle
-var filling = 0; // Fill obstacle
+var no = 0; // Number of enemies
 
 function addEnemies() {
     push();
+  
+    // Put enemy in the right place (according to the value of pos)   
+    // Set when the player loses (different for each position)
+  
     if (pos == 0) { // Up left
         translate(-90, -20, zo);
         if (zo >= 170 && zo <= 200 && side < 40 && jump <= -30) {
@@ -37,22 +38,24 @@ function addEnemies() {
         }
     }
 
-    if (zo > 270) {
-        pos = int(random(6)); //Starting obstacles from different positions
-        zo = -270;
-        no += 1;
-        score += 1;
+    if (zo > 270) { // Enemy has disappeared from the screen
+        pos = int(random(6)); //Starting enemies from 6 different positions
+        zo = -270; // Start next enemy at maximum depth
+        no += 1; // Increase number of enemies 
+        score += 1; // Each successfully avoided enemy increases the score by one
     }
-    if (loss === false) {
+    if (loss === false) { // Move enemy
         zo += speed;
     }
-    if (loss === false && speed <= 12 && no == 5) {
-        no = 0; //reset
-        speed += 1; // increase speed every 5 obstacles
+  
+    // Every 5 enemies: increase the speed by 1 until it reaches 12
+    if (loss === false && speed <= 12 && no == 5) { 
+        no = 0; // Reset number of enemies
+        speed += 1; // Increase speed by one
     }
 
+    // Choose suitable enemy
     normalMaterial();
-    //fill(255);
     rotate(PI);
     chooseEnemy(pos);
     pop();
