@@ -1,3 +1,4 @@
 # Hallway-Runner
 
-[link](https://editor.p5js.org/BLM3826/sketches/njT2ToZUY)
+
+Play game [here](https://editor.p5js.org/eleni/present/T5h-Qot1c)
