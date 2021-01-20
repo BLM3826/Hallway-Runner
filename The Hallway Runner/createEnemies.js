@@ -82,6 +82,7 @@ function streetLight(p) {
     } else {
         rotateZ(3 * PI / 2);
     }
+    translate(0, -17, 0);
     fill(255);
     scale(1 / 5);
     model(streetLightObj);

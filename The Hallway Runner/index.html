@@ -5,24 +5,29 @@
     <script src="p5.js"></script>
     <script src="p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!--coin icon source-->
     <script src="https://use.fontawesome.com/7b9ad6d573.js"></script>
     <meta charset="utf-8">
 
 </head>
 
 <body>
+    <!--loading screen pics-->
     <div class="loading_screen" id="loading_screen">
         <img src="assets/colorguy.gif" alt="Loading">
+        <img id="logo" src="assets/runlogo.png" alt="gamelogo" height="200" width="400">
     </div>
+    <!--score table-->
     <div id="info">
         <p id="total_info">Highscore: <span id="highscore">0</span> Total Coins: <span id="total_coins">0</span></p>
         <p id="info_text">Score: <span id="score">0</span> Coins: <span id="coins">0</span></p>
         <p id="score_msg"></p>
     </div>
-
+    <!--main menu-->
     <div id="popup2" class="overlay2">
         <div class="popup2">
             <div id="message">You Lost!</div>
+            <!-- all buttons -->
             <div class="bframe">
                 <a id="start" class="buttons">Start</a><br><br><br>
                 <a id="opts" class="buttons">Options</a><br><br><br>
@@ -30,12 +35,14 @@
             </div>
         </div>
     </div>
-
+    <!-- control hints -->
     <div id="popup1" class="overlay">
         <div class="popup">
             <h2>Controls: </h2>
+            <!-- the X button -->
             <a class="close">×</a>
             <div class="content">
+                <!-- controls list -->
                 <ul>
                     <li><b>UP</b>: UP_ARROW</li>
                     <li><b>LEFT</b>: LEFT_ARROW</li>
@@ -47,11 +54,13 @@
             </div>
         </div>
     </div>
+    <!-- options menu -->
     <div id="popup3" class="overlay">
         <div class="popup">
             <h2>Options</h2>
             <a class="close">×</a>
             <div class="content">
+                <!-- the Environment picker -->
                 <div class="envpick">
                     <span class="categ">Environment:</span>
                     <label class="container">
@@ -73,9 +82,10 @@
                         <span class="checkmark">
                             <img src="assets/brick_l.jpeg" alt="Env1" width="50px" height="50px">
                         </span>
-                        <span class="title">Hallway</span>
+                        <span class="title" id="alley">Alley</span>
                     </label>
                     <label class="container">
+                        <!-- checked for starter Environment -->
                         <input type="radio" checked="checked" name="radio" id="env4">
                         <span class="checkmark">
                             <img src="assets/wall.png" alt="Env1" width="50px" height="50px">
@@ -83,6 +93,7 @@
                         <span class="title">Dungeon</span>
                     </label>
                 </div>
+                <!-- all sounds on/off -->
                 <div class="soundcheck">
                     <span class="categ">Sound:</span>
                     <label class="switch">
@@ -90,10 +101,12 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
+                <!-- uniform color picker -->
                 <div class="charcolor">
                     <span class="categ">Uniform:</span>
                     <span class="price">20 <i class="fa fa-codiepie" aria-hidden="true"></i></span>
                     <label class="colorpicker">
+                        <!-- color choose button -->
                         <input type="color" name="charcolor" id="colorpick" value="#ff0000" disabled>
                     </label>
                 </div>
@@ -101,7 +114,7 @@
         </div>
     </div>
 
-
+    <!-- js file caller -->
     <script src="main.js"></script>
     <script src="controls.js"></script>
     <script src="daylight.js"></script>

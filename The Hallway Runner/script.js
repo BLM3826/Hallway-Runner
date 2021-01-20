@@ -7,7 +7,7 @@ var start = document.getElementById("start");
 var popup2 = document.getElementById("popup2");
 var popup3 = document.getElementById("popup3");
 var message = document.getElementById("message");
-var charcolor = document.getElementById("colorpick").value;
+var charcolor = document.getElementById("colorpick").value; //colors barcode
 var env1pick = document.getElementById("env1");
 var env2pick = document.getElementById("env2");
 var env3pick = document.getElementById("env3");
@@ -33,12 +33,13 @@ function loadingScreen() {
     if (document.getElementById("p5_loading") === null) {
         document.getElementById("loading_screen").style.opacity = 0;
         setTimeout(function() {
-            document.getElementById("loading_screen").style.display = "none";
+            document.getElementById("loading_screen").style.display = "none"; //timer until loading disappears
         }, 5000);
     }
 }
 
 
+//windows listeners 
 
 ctrlbtn.onclick = function() {
     popup.style.display = "block";
@@ -64,8 +65,10 @@ window.onclick = function(event) {
     }
 }
 
+
+//all moving variables initialized
 start.onclick = function() {
-    if(!mute) run.loop();
+    if (!mute) run.loop();
     rr = true;
     loss = false;
     z = 500;
@@ -81,7 +84,7 @@ start.onclick = function() {
     xr = 0 / 360;
     speed = 3;
     speedc = 3.5;
-    pos = random(6);
+    pos = int(random(6));
     cpos = random(4);
     popup2.style.display = "none";
     span_highscore.classList.remove("newrecord");
@@ -97,6 +100,7 @@ start.onclick = function() {
     }
 }
 
+//if lose stop moving and show menu
 function lose() {
     loss = true;
     score_msg.innerHTML = "";
@@ -108,23 +112,22 @@ function lose() {
         hscore = score;
     }
     console.log(first_lose);
-    if(first_lose){
-        if(!mute) damage.play();
+    if (first_lose) {
+        if (!mute) damage.play();
         first_lose = false;
         totalcoins += coins;
-    
+
         //Session Storage
         window.sessionStorage.setItem("hscore", hscore);
         window.sessionStorage.setItem("coins", totalcoins);
     }
 }
 
+//sound boolean on/off
 function soundCheck() {
     if (soundswitch.checked) {
-        masterVolume(1);
         mute = false;
     } else {
-        masterVolume(0);
         mute = true;
     }
 

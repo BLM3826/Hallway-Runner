@@ -11,6 +11,7 @@ body {
 
 canvas {
     display: block;
+    /*center the game*/
     margin: auto;
 }
 
@@ -21,6 +22,7 @@ canvas {
     height: 100%;
     width: 100%;
     opacity: 1;
+    /* fade-out animation */
     transition: all 5s ease-in-out;
     z-index: 100;
 }
@@ -28,7 +30,6 @@ canvas {
 .loading_screen img {
     display: block;
     margin: auto;
-    margin-top: 10%;
 }
 
 #info {
@@ -58,13 +59,16 @@ p {
     color: red;
 }
 
+
+/* black filter behinf the windows */
+
 .overlay {
     position: fixed;
     top: 0px;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.2);
     transition: opacity 500ms;
 }
 
@@ -83,11 +87,17 @@ p {
     transition: all 5s ease-in-out;
 }
 
+
+/* popup title */
+
 .popup h2 {
     margin-top: 0;
     color: #333;
     font-family: Tahoma, Arial, sans-serif;
 }
+
+
+/* the X button */
 
 .popup .close {
     position: absolute;
@@ -120,7 +130,7 @@ p {
 }
 
 .popup2 {
-    margin: 120px 50%;
+    margin: 120px 43%;
     padding: 20px;
     background: #fff;
     border-radius: 5px;
@@ -138,10 +148,12 @@ p {
 }
 
 .bframe {
-    /* border: rgb(179, 86, 86) solid; */
     text-align: center;
     padding: 20px 0px;
 }
+
+
+/* ----buttons---- */
 
 .buttons {
     font-size: 1em;
@@ -186,11 +198,6 @@ p {
 .categ {
     font-weight: bolder;
 }
-
-
-/* #popup3 .content {
-    max-height: 100%;
-} */
 
 
 /* ---------Environment-------- */
@@ -273,6 +280,10 @@ p {
     position: absolute;
     top: 60px;
     left: 0px;
+}
+
+#alley {
+    left: 12px;
 }
 
 
