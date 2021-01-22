@@ -9,10 +9,16 @@ body {
     height: 100vh;
 }
 
+main {
+    height: 100%;
+}
+
 canvas {
     display: block;
     /*center the game*/
     margin: auto;
+    height: 100% !important;
+    width: auto !important;
 }
 
 .loading_screen {

@@ -111,7 +111,6 @@ function lose() {
     if (score > hscore) {
         hscore = score;
     }
-    console.log(first_lose);
     if (first_lose) {
         if (!mute) damage.play();
         first_lose = false;
